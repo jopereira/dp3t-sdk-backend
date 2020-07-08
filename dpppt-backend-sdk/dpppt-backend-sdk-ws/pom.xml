@@ -181,7 +181,6 @@
 		</plugins>
 	</build>
 
-
 	<pluginRepositories>
 		<pluginRepository>
 			<snapshots>
