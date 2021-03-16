@@ -25,7 +25,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoadTestController {
   private static final Logger logger = LoggerFactory.getLogger(LoadTestController.class);
 
-  @Autowired private final GaenDataService dataService;
+  @Autowired
+  private final GaenDataService dataService;
 
   private final int gaenKeySizeBytes;
 
@@ -45,8 +46,7 @@ public class LoadTestController {
         "404 => Invalid parameters (numberOfKeys, withFederationGateway,...)"
       })
   public @ResponseBody ResponseEntity<ArrayList<GaenKey>> generateKeys(
-      @Documentation(description = "Number of keys to insert into db") @RequestParam
-          Long numberOfKeys,
+      @Documentation(description = "Number of keys to insert into db") @RequestParam Long numberOfKeys,
       @RequestParam(required = false, defaultValue = "false") Boolean withFederationGateway) {
     var now = UTCInstant.now();
 
