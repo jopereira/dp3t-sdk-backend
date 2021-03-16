@@ -36,8 +36,8 @@ public class WSProdConfig extends WSBaseConfig {
   @Value("${datasource.driverClassName}")
   String dataSourceDriver;
 
-  @Value("${datasource.failFast}")
-  String dataSourceFailFast;
+  @Value("1")
+  String dataSourceFailTimeout;
 
   @Value("${datasource.maximumPoolSize}")
   String dataSourceMaximumPoolSize;
@@ -64,6 +64,7 @@ public class WSProdConfig extends WSBaseConfig {
     config.setMaxLifetime(Integer.parseInt(dataSourceMaxLifetime));
     config.setIdleTimeout(Integer.parseInt(dataSourceIdleTimeout));
     config.setConnectionTimeout(Integer.parseInt(dataSourceConnectionTimeout));
+    config.setInitializationFailTimeout(Integer.parseInt(dataSourceFailTimeout));
     return new HikariDataSource(config);
   }
 
